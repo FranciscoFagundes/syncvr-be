@@ -23,6 +23,11 @@ app.get('/getList', async (req, res) => {
     res.json(await db.getList()).end();
 });
 
+app.get('/hello', async (req, res) => {
+    res.json("helllo").end();
+});
+
+
 const findFibonacci = (numberPosition)=>{
     let fibonacci = [0,1];
     for (let i = 1; i < numberPosition - 1; i++) {
