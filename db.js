@@ -18,6 +18,7 @@ async function getList() {
     }).catch(error => {
         throw error;
     })
+    conn.end();
 }
 
 async function addRequisition(fibonacciNumber, numberPosition, requisitionDate) {
