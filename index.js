@@ -23,6 +23,10 @@ app.get('/getList', async (req, res) => {
     res.json(await db.getList()).end();
 });
 
+app.get('/', async (req, res) => {
+    res.send("App is running");
+});
+
 app.get('/hello', async (req, res) => {
     res.json("helllo").end();
 });
