@@ -42,8 +42,6 @@ app.get('/', async (req, res) => {
     res.send("App is running");
 });
 
-
-
 const findFibonacci = (numberPosition)=>{
     let fibonacci = [0,1];
     for (let i = 1; i < numberPosition - 1; i++) {

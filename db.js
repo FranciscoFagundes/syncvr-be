@@ -17,8 +17,7 @@ async function getList() {
             return rows;
         }).catch(error => {
             throw error;
-        })
-        conn.end();
+        });
     } catch (error) {
         console.log(error);
     }
@@ -28,8 +27,7 @@ async function getList() {
 async function addRequisition(fibonacciNumber, numberPosition, requisitionDate) {
     try {
         const conn = await connect();
-        await conn.query("INSERT INTO log (fibonacci_number, number_position, requisition_date) values  (" + "'" + fibonacciNumber + "','" + numberPosition + "','" + requisitionDate + "')");
-        return conn.end();
+        return await conn.query("INSERT INTO log (fibonacci_number, number_position, requisition_date) values  (" + "'" + fibonacciNumber + "','" + numberPosition + "','" + requisitionDate + "')");
     } catch (error) {
         console.log(error);
     }
