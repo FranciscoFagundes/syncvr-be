@@ -14,15 +14,15 @@ conn.on('connection', function (_conn) {
     }
 });
 
-async function getList() {
+function getList() {
     try {
         let sql = 'SELECT * FROM log';
-        await conn.query(sql, (err, result) => {
-            if (err) throw err;
-            console.log(JSON.parse(JSON.stringify(result)));
-            return JSON.parse(JSON.stringify(result));
-        })
-
+        return new Promise((resolve, reject) => {
+            conn.query(sql, (err, result) => {
+                if (err) throw err;
+                resolve(JSON.parse(JSON.stringify(result)));
+            });
+        });
     } catch (error) {
         console.log(error);
     }
