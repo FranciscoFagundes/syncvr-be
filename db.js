@@ -17,14 +17,17 @@ conn.on('connection', function (_conn) {
 async function getList() {
     try {
         let sql = 'SELECT * FROM log';
-        return await conn.query(sql, function (err, result) {
+        await conn.query(sql, (err, result) => {
             if (err) throw err;
+            console.log(JSON.parse(JSON.stringify(result)));
             return JSON.parse(JSON.stringify(result));
-          //  conn.end();
-        });
+        })
+
     } catch (error) {
         console.log(error);
     }
+
+    console.log("teste")
 }
 
 async function addRequisition(fibonacciNumber, numberPosition, requisitionDate) {
@@ -33,7 +36,6 @@ async function addRequisition(fibonacciNumber, numberPosition, requisitionDate) 
     } catch (error) {
         console.log(error);
     }
-
 }
 
 
