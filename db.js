@@ -10,20 +10,30 @@ async function connect() {
 
 
 async function getList() {
-    const conn = await connect();
-    let query = 'SELECT * FROM log';
-    return conn.query(query).then(([rows]) => {
-        return rows;
-    }).catch(error => {
-        throw error;
-    })
-    conn.end();
+    try {
+        const conn = await connect();
+        let query = 'SELECT * FROM log';
+        return conn.query(query).then(([rows]) => {
+            return rows;
+        }).catch(error => {
+            throw error;
+        })
+        conn.end();
+    } catch (error) {
+        console.log(error);
+    }
+
 }
 
 async function addRequisition(fibonacciNumber, numberPosition, requisitionDate) {
-    const conn = await connect();
-    await conn.query("INSERT INTO log (fibonacci_number, number_position, requisition_date) values  (" + "'" + fibonacciNumber + "','" + numberPosition + "','" + requisitionDate + "')");
-    return conn.end();
+    try {
+        const conn = await connect();
+        await conn.query("INSERT INTO log (fibonacci_number, number_position, requisition_date) values  (" + "'" + fibonacciNumber + "','" + numberPosition + "','" + requisitionDate + "')");
+        return conn.end();
+    } catch (error) {
+        console.log(error);
+    }
+
 }
 
 

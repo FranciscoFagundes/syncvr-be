@@ -21,7 +21,7 @@ app.use((req, res, next) => {
       return res.status(200).json({})
     }
     next()
-  })
+  });
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`)
