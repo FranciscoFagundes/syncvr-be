@@ -41,9 +41,13 @@ app.get('/', async (req, res) => {
 
 const findFibonacci = (numberPosition)=>{
     let fibonacci = [0,1];
-    for (let i = 1; i < numberPosition - 1; i++) {
+    if(numberPosition > 1) {
+      for (let i = 1; i < numberPosition - 1; i++) {
         fibonacci.push(fibonacci[i] + fibonacci[i - 1]);
     }
     return fibonacci[fibonacci.length - 1] ;
+    }
+    return 0;
+    
 }
   
