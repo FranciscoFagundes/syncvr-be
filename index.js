@@ -3,9 +3,6 @@ const app = express();
 const port = process.env.PORT || 3000;
 const db = require("./db");
 
-// const cors = require('cors');
-
-// app.use(cors({ origin: "https://syncvr-challenge-fe.herokuapp.com/", credentials: true }))
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*")
