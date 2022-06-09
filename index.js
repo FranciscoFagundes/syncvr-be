@@ -1,12 +1,27 @@
 const express = require('express');
-const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 3000;
 const db = require("./db");
 
-app.use(cors({ origin: "https://syncvr-challenge-fe.herokuapp.com/", credentials: true }))
+// const cors = require('cors');
 
+// app.use(cors({ origin: "https://syncvr-challenge-fe.herokuapp.com/", credentials: true }))
 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested, Content-Type, Accept Authorization"
+    )
+    if (req.method === "OPTIONS") {
+      res.header(
+        "Access-Control-Allow-Methods",
+        "POST, PUT, PATCH, GET, DELETE"
+      )
+      return res.status(200).json({})
+    }
+    next()
+  })
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`)
