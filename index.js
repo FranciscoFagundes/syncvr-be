@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 const db = require("./db");
 
-app.use(cors());
+app.use(cors({ origin: "https://syncvr-challenge-fe.herokuapp.com/", credentials: true }))
 
 
 
@@ -27,9 +27,6 @@ app.get('/', async (req, res) => {
     res.send("App is running");
 });
 
-app.get('/hello', async (req, res) => {
-    res.json("helllo").end();
-});
 
 
 const findFibonacci = (numberPosition)=>{
