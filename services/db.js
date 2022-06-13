@@ -26,8 +26,6 @@ function getList() {
     } catch (error) {
         console.log(error);
     }
-
-    console.log("teste")
 }
 
 async function addRequisition(fibonacciNumber, numberPosition, requisitionDate) {
@@ -37,6 +35,5 @@ async function addRequisition(fibonacciNumber, numberPosition, requisitionDate) 
         console.log(error);
     }
 }
-
 
 module.exports = { getList, addRequisition }
