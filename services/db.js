@@ -1,10 +1,10 @@
 const mysql = require('mysql');
 
 const conn = mysql.createPool({
-    host: "eu-cdbr-west-02.cleardb.net",
-    user: "bfc91110e0c25b",
-    password: "583bfb0f",
-    database: "heroku_eec4ae15216c394"
+    host: "your server",
+    user: "your user",
+    password: "your password",
+    database: "your database"
 });
 
 conn.on('connection', function (_conn) {
@@ -35,5 +35,6 @@ async function addRequisition(fibonacciNumber, numberPosition, requisitionDate) 
         console.log(error);
     }
 }
+
 
 module.exports = { getList, addRequisition }
